@@ -10,7 +10,7 @@ router.get("/maps", (req, res, next) => {
   const direccion = unidecode(req.query.search)
   console.log(direccion)
 
-  axios.get("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?inputtype=textquery&fields=formatted_address,name,geometry,place_id&key=AIzaSyBT0RpL1Yw7Q5WC4WemS6hyJ_Y3PnSUyfY&input=" + direccion)
+  axios.get("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?inputtype=textquery&fields=formatted_address,name,geometry,place_id&key=" + process.env.GOOGLE_API_KEY + "&input=" + direccion)
   .then(response => {
     res.json(response.data)
   })
