@@ -9,7 +9,8 @@ const schema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'Task'
     }
-  ]
+  ],
+  owner: {type: Schema.Types.ObjectId, ref: 'User'}
 })
 
 module.exports = mongoose.model('Project', schema)
